@@ -40,7 +40,8 @@ from distutils.errors import CompileError
 from setuptools import Extension, find_packages
 from setuptools.command.build_py import build_py
 
-# Try not to export anything else in Twisted unless we really have to.
+# Do not replace this with t.p.compat imports, this file must not import
+# from Twisted. See the docstring.
 if sys.version_info < (3, 0):
     _PY3 = False
 else:
@@ -359,21 +360,14 @@ _isCPython = _checkCPython()
 notPortedModules = [
     "twisted.conch.client.connect",
     "twisted.conch.client.direct",
-<<<<<<< 5a4a78453d560d31521575dde096161794ba470b
     "twisted.conch.test.test_cftp",
     "twisted.conch.test.test_ckeygen",
     "twisted.conch.test.test_conch",
     "twisted.conch.test.test_manhole",
-=======
-    "twisted.conch.tap",
     "twisted.conch.test.test_cftp",
     "twisted.conch.test.test_ckeygen",
     "twisted.conch.test.test_conch",
-    "twisted.conch.test.test_helper",
     "twisted.conch.test.test_manhole",
-    "twisted.conch.test.test_tap",
-    "twisted.conch.ttymodes",
->>>>>>> beat the setup into shape
     "twisted.conch.ui.__init__",
     "twisted.conch.ui.ansi",
     "twisted.conch.ui.tkvt100",
